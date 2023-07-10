@@ -6,6 +6,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { DashboardComponent } from './pages/admin/dashboard/dashboard.component';
 import { UserDashboardComponent } from './pages/user/user-dashboard/user-dashboard.component';
 import { AdminGuard } from './services/admin.guard';
+import { ProfileComponent } from './pages/profile/profile.component';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { ViewCategoriasComponent } from './pages/admin/view-categorias/view-categorias.component';
+import { AddCategoriaComponent } from './pages/admin/add-categoria/add-categoria.component';
 
 const routes: Routes = [
 
@@ -27,8 +31,25 @@ const routes: Routes = [
   {
     path: 'admin',
     component: DashboardComponent,
-    pathMatch: 'full',
-    canActivate: [AdminGuard]
+    canActivate: [AdminGuard],
+    children:[
+      {
+        path: 'profile',
+        component: ProfileComponent
+      },
+      {
+        path: '',
+        component: WelcomeComponent
+      },
+      {
+        path: 'categorias',
+        component: ViewCategoriasComponent
+      },
+      {
+        path: 'add-categoria',
+        component: AddCategoriaComponent
+      }
+    ]
   },
   {
     path: 'user-dashboard',

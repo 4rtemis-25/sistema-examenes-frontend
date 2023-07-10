@@ -15,7 +15,9 @@
           <a *ngIf = "isLoggedIn" (click) = 'logout()' [routerLink]="'/signup'" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon" style="margin-right: 120px;">
             Cerrar Sesión
           </a>
-          <button *ngIf = "isLoggedIn" style="margin-right: 10px;" mat-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+          <button *ngIf = "isLoggedIn" style="margin-right: 10px;" mat-button class="example-icon favorite-icon"
+          routerLink="/admin/profile"
+          aria-label="Example icon-button with heart icon">
             {{ loginService.getUser()?.username }}
           </button>
           
