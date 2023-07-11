@@ -20,4 +20,12 @@ export class ExamenService {
   public eliminarExamen(examenId:any){
     return this.http.delete(`${baserUrl}/examenes/${examenId}`);
   }
+
+  public obtenerExamen(examenId:any){
+    return this.http.get(`${baserUrl}/examenes/${examenId}`);
+  }
+
+  public actualizarExamen(examen:any){
+    return this.http.put(`${baserUrl}/examenes/`, examen)
+  }
 }

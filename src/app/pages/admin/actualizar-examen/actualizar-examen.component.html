@@ -1,13 +1,13 @@
 <mat-card>
-    <h1>Agregar Nuevo Examen</h1>
+    <h1>Actualizar Examen</h1>
 
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <form (ngSubmit)="guardarExamen()">
+            <form *ngIf = "examen" (submit)="actualizarDatos()">
                 <mat-form-field class="w100" appearance="fill">
                     <mat-label>Titulo</mat-label>
                     <input type="text"
-                    [(ngModel)] = "examenData.titulo"
+                    [(ngModel)] = "examen.titulo"
                     name="titulo"
                     placeholder="Digite el titulo"
                     required
@@ -16,7 +16,7 @@
                 <mat-form-field class="w100" appearance="fill">
                     <mat-label>Descripcion</mat-label>
                     <textarea
-                    [(ngModel)] = "examenData.descripcion"
+                    [(ngModel)] = "examen.descripcion"
                     type="text"
                     name="descripcion"
                     placeholder="Digite la descripcion"
@@ -29,7 +29,7 @@
                         <mat-form-field class="w100" appearance="fill">
                             <mat-label>Puntos Máximos</mat-label>
                             <input
-                            [(ngModel)] = "examenData.puntosMaximos"
+                            [(ngModel)] = "examen.puntosMaximos"
                             type="number"
                             name="puntosMaximos"
                             placeholder="Digite la cantidad de puntos"
@@ -40,7 +40,7 @@
                         <mat-form-field class="w100" appearance="fill">
                             <mat-label>Número de Preguntas</mat-label>
                             <input 
-                            [(ngModel)] = "examenData.numeroPreguntas"
+                            [(ngModel)] = "examen.numeroPreguntas"
                             type="number"
                             name="numeroPreguntas"
                             placeholder="Digite el numero de preguntas"
@@ -48,21 +48,21 @@
                         </mat-form-field>
                     </div>
                 </div>
-                <mat-slide-toggle class="mt20" name="activo" [(ngModel)] = "examenData.activo" [checked] = "false" color="primary">
+                <mat-slide-toggle class="mt20" name="activo" [(ngModel)] = "examen.activo" [checked] = "false" color="primary">
                     Estado de Publicación
                 </mat-slide-toggle>
 
                 <mat-form-field appearance="fill" class="mt20 w100">
                     <mat-label>Categorías</mat-label>
-                    <mat-select name="categoria" [(ngModel)] = "examenData.categoria.categoriaId">
-                        <mat-option *ngFor="let c of categorias" [value] = "c.categoriaId">
+                    <mat-select name="categoria" [(ngModel)] = "examen.categoria.categoriaId">
+                        <mat-option *ngFor = "let c of categoria" [value] = "c.categoriaId">
                             {{c.titulo}}
                         </mat-option>
                     </mat-select>
                 </mat-form-field>
 
                 <div class="container text-center">
-                    <button mat-raised-button color="primary">Agregar</button>
+                    <button type="submit" mat-raised-button color="primary">Actualizar</button>
                     <br><br>
                 </div>
             </form>
