@@ -15,6 +15,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { SignupComponent } from './pages/signup/signup.component';
@@ -38,6 +39,10 @@ import { ViewExamenPreguntasComponent } from './pages/admin/view-examen-pregunta
 import { AddPreguntaComponent } from './pages/admin/add-pregunta/add-pregunta.component';
 import { ActualizarPreguntaComponent } from './pages/admin/actualizar-pregunta/actualizar-pregunta.component';
 import { SidebarComponent as UserSidebar } from './pages/user/sidebar/sidebar.component';
+import { LoadExamenComponent } from './pages/user/load-examen/load-examen.component';
+import { InstruccionesComponent } from './pages/user/instrucciones/instrucciones.component';
+import { StartComponent } from './pages/user/start/start.component';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 @NgModule({
   declarations: [
@@ -59,7 +64,10 @@ import { SidebarComponent as UserSidebar } from './pages/user/sidebar/sidebar.co
     ViewExamenPreguntasComponent,
     AddPreguntaComponent,
     ActualizarPreguntaComponent,
-    UserSidebar
+    UserSidebar,
+    LoadExamenComponent,
+    InstruccionesComponent,
+    StartComponent
 
   ],
   imports: [
@@ -77,7 +85,14 @@ import { SidebarComponent as UserSidebar } from './pages/user/sidebar/sidebar.co
     MatIconModule,
     MatListModule,
     MatSlideToggleModule,
-    MatSelectModule
+    MatSelectModule,
+    MatProgressSpinnerModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground:true
+    })
+    
+    
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
